@@ -1,0 +1,96 @@
+h1 {
+    font-size: 36px;
+    text-align: center;
+    margin: 30px 0 20px;
+}
+
+.fundChooseList {
+    background: #F3F7FC;
+    padding: 20px 32px;
+    height: calc(100vh - 100px);
+    width: 686px;
+    margin: auto;
+    box-sizing: border-box;
+    overflow-y: auto;
+    border-radius: 20px;
+}
+
+.item {
+    .titleAndCode {
+        font-size: 30px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            color: #1A75DF;
+            font-size: 24px;
+            font-weight: 400;
+            text-decoration: none;
+        }
+
+        span {
+            display: inline-block;
+            color: #999;
+            font-size: 24px;
+            font-weight: 400;
+            margin-left: 24px;
+        }
+    }
+
+    .itemTwo {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin-top: 24px;
+
+        div {
+            width: 25%;
+            p:nth-child(1) {
+                font-size: 30px;
+                font-weight: 600;
+                margin-bottom: 16px;
+            }
+
+            p:nth-child(2) {
+                color: #999;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    padding: 24px 0;
+    border-bottom:1px solid #F0F0F0;
+
+    .itemThree {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        align-items: center;
+
+        img {
+            height: 26px;
+            margin-right: 14px;
+        }
+
+        .fundName {
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-top: 4px;
+        }
+
+        div:nth-child(1) {
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+.fundItemTitle{
+    display: block !important;
+    span{
+        margin: 0 !important;
+        font-weight: 600 !important;
+    }
+}

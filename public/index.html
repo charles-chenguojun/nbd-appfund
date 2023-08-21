@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+            name="viewport"
+        />
+        <link rel="icon" href="./favicon.ico" />
+        <title>&lrm;</title>
+        <script>
+            function getOSType() {
+                if (navigator.userAgent.match(/nbdapp/i)) {
+                    return 0;
+                } else {
+                    return 2;
+                }
+            }
+            // if (getOSType() === 2) {
+            //     location.href = 'http://www.nbd.com.cn/corp/NBD-fund-app/index.html#/share?type=niugu';
+            // }
+            // 我的根html字体是 font-size:calc(100vw/7.5);
+            // function htmlFontSize(){
+            //             var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+            //             var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+            //             var width = w > h ? h : w;
+            //             width = width > 720 ? 720 : width
+            //             var fz = ~~(width*100000/36)/10000
+            //             document.getElementsByTagName("html")[0].style.cssText = 'font-size: ' + fz +"px";
+            //             var realfz = ~~(+window.getComputedStyle(document.getElementsByTagName("html")[0]).fontSize.replace('px','')*10000)/10000
+            //             if (fz !== realfz) {
+            //                 document.getElementsByTagName("html")[0].style.cssText = 'font-size: ' + fz * (fz / realfz) +"px";
+            //             }
+            // }
+            function countFont1() {
+                var originRootFontSize = parseFloat(
+                    window
+                        .getComputedStyle(document.documentElement, null)
+                        .getPropertyValue("font-size"),
+                );
+                console.log(document.documentElement.clientWidth);
+                var realSize = document.documentElement.clientWidth / 10;
+
+                console.log(
+                    "originRootFontSize：" +
+                        originRootFontSize +
+                        "realSize:" +
+                        realSize,
+                );
+
+                if (originRootFontSize === realSize) {
+                    return;
+                }
+                // 计算原字体和放大后字体的比例
+                var scaleFactor = realSize / originRootFontSize;
+                // 取html元素的字体大小
+                // 注意，这个大小也经过缩放了
+                // 所以下方计算的时候 *scaledFontSize是原来的html字体大小
+                // 再次 *scaledFontSize才是我们要设置的大小
+                if (scaleFactor !== 1) {
+                    document.getElementsByTagName("html")[0].style.cssText =
+                        "font-size:" +
+                        originRootFontSize * scaleFactor * scaleFactor +
+                        "px !important";
+                }
+            }
+            window.onresize = function () {
+                console.log(1);
+                setTimeout(() => {
+                    countFont1();
+                }, 10);
+            };
+
+            (function () {
+                setTimeout(() => {
+                    countFont1();
+                }, 10);
+            })();
+        </script>
+    </head>
+
+    <body>
+        <noscript>
+            <strong
+                >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't
+                work properly without JavaScript enabled. Please enable it to
+                continue.</strong
+            >
+        </noscript>
+        <div id="app"></div>
+        <!-- built files will be auto injected -->
+    </body>
+    <!-- <script src="./js/inobounce.js"></script> -->
+</html>
